@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1426">
+<title>Wobatech – Geburtstage</title>
+<style>
+:root{color-scheme:dark;--bg:#071324;--panel:#111f35;--line:rgba(184,207,235,.14);--text:#f5f9ff;--muted:#9eb1c9;--accent:#30cfb1;--gold:#ffca75}
+*{box-sizing:border-box}html,body{margin:0;height:100%;width:100%;overflow:hidden}body{font-family:Inter,"Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at 90% 0%,#183856 0%,transparent 45%),radial-gradient(ellipse at 0% 100%,#112c42 0%,transparent 50%),var(--bg);color:var(--text)}
+.screen{width:100%;height:100dvh;min-height:0;padding:2.65vh 3vw;display:flex;flex-direction:column;gap:1.65vh}header{display:flex;align-items:center;justify-content:space-between;gap:2vw;flex:none}.eyebrow{font-size:clamp(11px,1.05vw,22px);font-weight:750;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(28px,3.25vw,78px);line-height:1.07;letter-spacing:-.045em;margin:.4vh 0 0;font-weight:820}.subtitle{color:var(--muted);font-size:clamp(13px,1.05vw,24px);margin:.6vh 0 0}.datepill{flex:none;border:1px solid var(--line);background:#ffffff0b;border-radius:100px;padding:1.15vh 1.5vw;font-weight:650;font-size:clamp(12px,1.12vw,24px);color:#dbe9f7;white-space:nowrap}.headingbar{display:flex;justify-content:space-between;align-items:center;gap:2vw;flex:none}.headingbar .count{color:#aec0d4;font-size:clamp(12px,1.04vw,22px)}.next{font-size:clamp(12px,1.07vw,24px);color:#cde4e4}.next strong{color:var(--accent)}
+.months{min-height:0;flex:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:1.0vh .85vw}.month{min-width:0;min-height:0;background:linear-gradient(145deg,#172941e6,#0f1d31ee);border:1px solid var(--line);border-radius:clamp(10px,1vw,22px);padding:1.0vh 1.08vw;display:flex;flex-direction:column;gap:.5vh;overflow:hidden}.month h2{font-size:clamp(12px,1.2vw,25px);color:var(--accent);margin:0 0 .15vh;font-weight:750;letter-spacing:.025em}.birth{display:grid;grid-template-columns:clamp(35px,3.3vw,74px) minmax(0,1fr);gap:.45vw;align-items:center;padding:.4vh .35vw;border-radius:8px;min-width:0}.birth .day{color:#a5bbd0;font-weight:800;font-size:clamp(12px,1.04vw,23px);font-variant-numeric:tabular-nums}.birth .person{font-weight:660;font-size:clamp(12px,1.13vw,26px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.birth.upcoming{background:rgba(48,207,177,.1);outline:1px solid rgba(48,207,177,.35)}.birth.upcoming .day,.birth.upcoming .person{color:#7ef3d8}.month.empty{background:#ffffff07}.month.empty .emptytext{font-size:clamp(12px,.94vw,20px);color:#6f8198;margin-top:1vh}
+footer{display:flex;align-items:center;justify-content:space-between;flex:none;color:#7d93ac;font-size:clamp(11px,.9vw,19px);gap:1vw}
+#celebrate{display:none;position:fixed;inset:0;overflow:hidden;text-align:center;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 35%,#254363 0%,#112b42 42%,#071324 100%);isolation:isolate;padding:4vw}#celebrate.visible{display:flex}.celebrate-inner{position:relative;z-index:2;display:flex;align-items:center;flex-direction:column;justify-content:center;max-width:95%;gap:2.3vh}.smallcap{color:#93f9dd;letter-spacing:.25em;text-transform:uppercase;font-size:clamp(14px,1.6vw,33px);font-weight:800}.gift{font-size:clamp(65px,7.8vw,175px);line-height:1}#celebrate h2{margin:0;font-size:clamp(47px,6.9vw,156px);line-height:1.02;letter-spacing:-.05em;font-weight:850}#celebrate .names{font-size:clamp(33px,4.4vw,100px);line-height:1.17;color:#ffdf9b;font-weight:790;overflow-wrap:anywhere}#celebrate p{font-size:clamp(19px,1.75vw,40px);color:#c7d7e6;margin:0}#celebrate .datepill{margin-top:2vh}.orb{position:absolute;border-radius:50%;filter:blur(1px);opacity:.45;animation:float 12s ease-in-out infinite alternate;z-index:0}.orb.a{width:22vw;height:22vw;background:#20bc9b33;left:-6vw;top:-5vw}.orb.b{width:18vw;height:18vw;background:#efb35444;right:3vw;bottom:-7vw;animation-delay:-5s}.orb.c{width:8vw;height:8vw;background:#7a8ef744;right:15vw;top:12vh;animation-delay:-3s}@keyframes float{to{transform:translate(4vw,-4vh)}}.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}.piece{position:absolute;top:-10%;width:8px;height:20px;opacity:.85;animation:fall linear infinite}@keyframes fall{to{transform:translate3d(12vw,115vh,0) rotate(950deg)}}
+@media(max-aspect-ratio:1.1){html,body{overflow:auto}.screen{height:auto;min-height:100dvh}.months{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none}.month{min-height:120px}.month h2{font-size:18px}.birth .person,.birth .day{font-size:15px}#celebrate{position:fixed}}
+@media(prefers-reduced-motion:reduce){.orb,.piece{animation:none}}
+</style>
+</head>
+<body>
+<div class="screen" id="overview">
+ <header><div><div class="eyebrow">Unser Team</div><h1>Geburtstage</h1><div class="subtitle">Alle Geburtstage auf einen Blick</div></div><div class="datepill" id="today">–</div></header>
+ <div class="headingbar"><div class="count">19 Teammitglieder · Januar bis Dezember</div><div class="next" id="next">–</div></div>
+ <main class="months" id="months"></main>
+ <footer><span>Gemeinsam feiern wir unser Team</span><span>Automatisch aktuell · Zeitzone Schweiz</span></footer>
+</div>
+<div id="celebrate" role="region" aria-label="Geburtstagsgrüsse"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div><div class="confetti" id="confetti"></div><div class="celebrate-inner"><div class="smallcap">Heute wird gefeiert</div><div class="gift" aria-hidden="true">🎉</div><h2>Happy Birthday!</h2><div class="names" id="birthdayNames"></div><p>Das ganze Team wünscht alles Gute zum Geburtstag!</p><div class="datepill" id="celebrateDate">–</div></div></div>
+<script>
+'use strict';
+// Datum = Tag/Monat. Die Liste kann hier bearbeitet werden, wenn sich das Team ändert.
+const birthdays = [
+ [1,1,'Simon','Dodaj'],[21,1,'Björn','Becher'],[14,2,'Lech','Franke'],
+ [4,3,'Suad','Huremovic'],[29,3,'Christian','Raimann'],[31,3,'Stefan','Kuster'],[31,3,'Suad','Zekovic'],
+ [26,4,'Alex','Buchwald'],[5,5,'Denise','Gallmann'],[22,5,'Jörg','Schönbächler'],
+ [3,6,'Taulant','Junuzi'],[9,6,'Martin','Gallmann'],[21,6,'Sven','Lübben'],
+ [18,7,'Ibrahim','Ibrahim'],[3,9,'Aurelio','Firreri'],[7,9,'Philippe','Lacher'],
+ [11,9,'Sina','Gallmann'],[27,9,'Marcel','Schai'],[31,12,'Claudia','Mazzoletti']
+];
+const months=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+const two=n=>String(n).padStart(2,'0');
+const localeDate=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zurich',year:'numeric',month:'2-digit',day:'2-digit'});
+function swissToday(){const parts=Object.fromEntries(localeDate.formatToParts(new Date()).filter(x=>x.type!=='literal').map(x=>[x.type,Number(x.value)]));return {year:parts.year,month:parts.month,day:parts.day};}
+function nextBirth(now){const todayCode=now.month*100+now.day;return birthdays.map(b=>({b,code:b[1]*100+b[0]})).filter(o=>o.code>todayCode).sort((a,b)=>a.code-b.code)[0]?.b || birthdays[0];}
+function render(){
+ const now=swissToday(); const todayText=`${two(now.day)}.${two(now.month)}.${now.year}`;
+ document.getElementById('today').textContent=todayText;
+ const todays=birthdays.filter(b=>b[0]===now.day&&b[1]===now.month);
+ const next=nextBirth(now); document.getElementById('next').innerHTML='Nächster Geburtstag: <strong>'+two(next[0])+'.'+two(next[1])+'. · '+next[2]+' '+next[3]+'</strong>';
+ const container=document.getElementById('months');container.replaceChildren();
+ months.forEach((month,i)=>{const entries=birthdays.filter(b=>b[1]===i+1);const section=document.createElement('section');section.className='month'+(entries.length?'':' empty');const title=document.createElement('h2');title.textContent=month;section.append(title);
+ if(!entries.length){const span=document.createElement('span');span.className='emptytext';span.textContent='Keine Geburtstage';section.append(span)}
+ entries.forEach(b=>{const entry=document.createElement('div');entry.className='birth'+(b===next?' upcoming':'');const day=document.createElement('span');day.className='day';day.textContent=two(b[0])+'.'+two(b[1])+'.';const name=document.createElement('span');name.className='person';name.textContent=b[2]+' '+b[3];entry.append(day,name);section.append(entry)});container.append(section)});
+ const celebration=document.getElementById('celebrate');celebration.classList.toggle('visible',todays.length>0);
+ if(todays.length){document.getElementById('birthdayNames').textContent=todays.map(b=>b[2]+' '+b[3]).join(' & ');document.getElementById('celebrateDate').textContent=todayText;}
+}
+function makeConfetti(){const parent=document.getElementById('confetti');const colors=['#30cfb1','#ffc875','#eff7ff','#a99bff','#ff8f99'];for(let i=0;i<70;i++){const p=document.createElement('span');p.className='piece';p.style.left=(i*37.71%100)+'%';p.style.background=colors[i%colors.length];p.style.animationDuration=(6+(i%9)*.65)+'s';p.style.animationDelay=-(i%13)+'s';p.style.transform='rotate('+i*23+'deg)';parent.appendChild(p)}}
+makeConfetti();render();setInterval(render,60*1000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
+</script>
+</body>
+</html>
